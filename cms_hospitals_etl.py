@@ -38,7 +38,7 @@ def update_last_run_date():
 def to_snake_case(col_name):
     col_name = col_name.lower()                     # Convert to lowercase
     col_name = re.sub(r"[^a-z0-9]+", "_", col_name) # Replace sequence of non-alphanumeric characters with underscore               
-    return col_name.strip()                         # Strip leading/trailing spaces
+    return col_name.strip("_")                      # Remove leading/trailing underscores
 
 # Fetch datasets from the CMS API where theme = "Hospitals"
 def fetch_hospital_datasets():
@@ -107,4 +107,5 @@ def run_etl_job():
 
 if __name__ == "__main__":
     run_etl_job()
+
 
